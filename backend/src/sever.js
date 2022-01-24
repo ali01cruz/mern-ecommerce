@@ -4,9 +4,11 @@ import morgan from 'morgan';
 import config from './config/index.js';
 import routes from './routes/index.js';
 import { errorHandler, notFound } from './middlewares/errorMiddleware.js';
+import connectDB from './config/db.js';
 
 const server = express();
 
+connectDB();
 server.use(express.json());
 
 if(config.nodeEnv==='development'){

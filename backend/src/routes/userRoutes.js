@@ -18,6 +18,7 @@ router.post('/', registerUser);
 router.post('/login', authUser);
 router.get('/profile' ,protec ,getUserProfile);
 router.put('/profile', updateUserProfile);
+router.get('/list', getUsers,);
 
 /* router.post('/', protect,admin ,getUsers);
 

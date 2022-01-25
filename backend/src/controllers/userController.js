@@ -90,7 +90,19 @@ export const updateUserProfile = asyncHandler(async(req ,res)=>{
 });
 
 export const getUsers = asyncHandler(async(req ,res)=>{
-
+    User.find((err, Usuarios) =>{
+        if (err){
+            res.json({
+                msj: 'No hay usuarios registrados',
+                err
+            });
+        }else{
+            res.json({
+                msj: 'Lista de Usuarios',
+               Usuarios 
+            });
+        }
+    });
 })
 
 export const deleteUser = asyncHandler(async(req ,res)=>{

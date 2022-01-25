@@ -7,7 +7,7 @@ export const authUser = asyncHandler(async (req, res)=> {
     const user = await User.findOne({email});
     if(user && (await user.matchPassword(password))){
         res.json({
-            //_id = user._id,  //LO tache por que me tiraba un error 
+            _id : user._id,  //LO tache por que me tiraba un error 
             name: user.name,
             email : user.email,
             isAdmin: user.isAdmin,
@@ -37,7 +37,7 @@ export const registerUser = asyncHandler(async (req, res)=> {
 
     if(user){
         res.json.status(201)({
-            //_id = user._id,
+            _id : user._id,
             name: user.name,
             email : user.email,
             isAdmin: user.isAdmin,
@@ -48,3 +48,28 @@ export const registerUser = asyncHandler(async (req, res)=> {
         throw new Error('Invalid user data');
     }
 });
+
+
+export const getUserProfile = asyncHandler(async(req ,res)=>{
+
+})
+
+export const updateUserProfile = asyncHandler(async(req ,res)=>{
+
+})
+
+export const getUsers = asyncHandler(async(req ,res)=>{
+
+})
+
+export const deleteUser = asyncHandler(async(req ,res)=>{
+
+})
+
+export const getUserById = asyncHandler(async(req ,res)=>{
+
+})
+
+export const updateUser = asyncHandler(async(req ,res)=>{
+
+})

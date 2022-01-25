@@ -9,15 +9,18 @@ import {
      getUserById,
      updateUser,
     } from '../controllers/userController.js';
-import { admin } from "../middlewares/authMiddleware.js";
+import { admin ,protec} from "../middlewares/authMiddleware.js";
 
 
 const router = Router();
 
 router.post('/', registerUser);
+router.post('/login', authUser);
+router.get('/profile' ,protec ,getUserProfile)
+
 
 /* router.post('/', protect,admin ,getUsers);
-router.post('/login', authUser);
+
 router.get('/profile' ,protect ,getUserProfile)
 router.put('/profile',protect ,updateUserProfile)
 router.delete('/:id',protect, admin ,deleteUser)

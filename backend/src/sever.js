@@ -26,13 +26,15 @@ server.use((req,res,next)=>{
 server.get(config.api.prefix, (req, res)=>{
     res.send('API is running...');
 })
-
-//Middlewares 
-//server.use(notFound);
-//server.use(errorHandler);
-
 //routes 
 server.use(config.api.prefix,routes);
+
+
+//Middlewares 
+server.use(notFound);
+server.use(errorHandler);
+
+
 
 
 export default server;

@@ -36,7 +36,7 @@ export const registerUser = asyncHandler(async (req, res)=> {
     });
 
     if(user){
-        res.json().status(201)({
+        res.status(201).json({
             _id : user._id,
             name: user.name,
             email : user.email,
@@ -51,7 +51,8 @@ export const registerUser = asyncHandler(async (req, res)=> {
 
 
 export const getUserProfile = asyncHandler(async(req ,res)=>{
-
+    const user = req.user
+    res.status(200).json(user)
 })
 
 export const updateUserProfile = asyncHandler(async(req ,res)=>{

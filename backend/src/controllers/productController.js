@@ -25,11 +25,22 @@ export const deleteProduct = asyncHandler(async (req, res)=>{
 
 });
 
-/* export const createProduct = asyncHandler(async (req,res)=>{
+export const createProduct = asyncHandler(async (req,res)=>{
     const product = new Product({
         name:'Sample name',
         price:0,
         user:req.user._id,
-        image:'/image/'
-    })
-}) */
+        image:'/image/',
+        brand:'Sample brand',
+        category:'Sample category',
+        contInStock:0,
+        numReviews:0,
+        description:'Sample description',
+    });
+    const createProduct = await product.save();
+    res.status(201).json(createProduct)
+})
+
+export const updateProduct = asyncHandler(async (req ,res)=>{
+    
+})

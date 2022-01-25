@@ -51,13 +51,20 @@ export const registerUser = asyncHandler(async (req, res)=> {
 
 
 export const getUserProfile = asyncHandler(async(req ,res)=>{
-    const user = req.user
+    const id_user = req.user._id
+    //usar find_by_id
+    const user = await User.findById(id_user).exec();
+    console.log(user);
+    if(!user){
+        res.status(400);
+        throw new Error('User already NOT Exists');
+    }
     res.status(200).json(user)
-})
+});
 
 export const updateUserProfile = asyncHandler(async(req ,res)=>{
 
-})
+});
 
 export const getUsers = asyncHandler(async(req ,res)=>{
 

@@ -28,8 +28,8 @@ server.get(config.api.prefix, (req, res)=>{
 })
 
 //Middlewares 
-server.use(notFound);
-server.use(errorHandler);
+//server.use(notFound);
+//server.use(errorHandler);
 
 //routes 
 server.use(config.api.prefix,routes);

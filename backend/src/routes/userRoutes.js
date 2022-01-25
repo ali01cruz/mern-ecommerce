@@ -16,8 +16,8 @@ const router = Router();
 
 router.post('/', registerUser);
 router.post('/login', authUser);
-router.get('/profile' ,protec ,getUserProfile)
-
+router.get('/profile' ,protec ,getUserProfile);
+router.put('/profile', updateUserProfile);
 
 /* router.post('/', protect,admin ,getUsers);
 

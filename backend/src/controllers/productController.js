@@ -50,7 +50,28 @@ export const registerProduct = asyncHandler(async (req,res)=>{
 
 export const updateProduct = asyncHandler(async (req ,res)=>{
     
-})
+    const productExists = await Product.findById(req.params.id);
+
+    if (productExists) {
+        productExists.name = req.body.name || productExists.name;
+        productExists.image = req.body.image || productExists.image;
+        productExists.brand = req.body.brand || productExists.brand;
+        productExists.category = req.body.category || productExists.category;
+        productExists.description = req.body.description || productExists.description;
+        productExists.price = req.body.price || productExists.price;
+        productExists.countInStock = req.body.countInStock || productExists.countInStock;
+
+        productExists.save();
+        res.status(200).json({
+            mns:'Producto Modificado correctamente'
+            });
+
+        
+    } else {
+        res.status(404);
+        throw new Error("Product not found");
+    }
+});
 
 export const createProductReview = asyncHandler(async (req,res)=>{
     const {rating ,comment} = req.body;

@@ -17,7 +17,7 @@ router.post('/',protect, registerProduct);
 router.post('/:id/review',protect, createProductReview);
 
 router.get('/',protect, getProducts);
-router.delete('/:id',protect,deleteProduct);
+router.delete('/:id',protect, admin, deleteProduct);
 router.get('/:id', protect, admin, getProductById);
 router.put('/:id', protect, updateProduct);
 

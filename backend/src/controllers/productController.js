@@ -19,6 +19,13 @@ export const getProducts = asyncHandler(async (req , res)=>{
 })
 
 export const getProductById = asyncHandler(async (req,res)=>{
+    let id=req.params.id
+    const product = await Product.findById({_id:id})
+    if(!product){
+        res.status(404)
+        throw new Error('Produc Not Found');
+    }
+    res.status(200).json(product)
 
 })
 export const deleteProduct = asyncHandler(async (req, res)=>{

@@ -1,6 +1,7 @@
 import asyncHandler from 'express-async-handler';
 import generateToken from '../common/generateToken.js';
 import User from '../models/userModel.js';
+import bcrypt from 'bcryptjs'
 
 export const authUser = asyncHandler(async (req, res)=> {
     const {email, password} = req.body;
@@ -67,27 +68,29 @@ export const getUserProfile = asyncHandler(async(req ,res)=>{
 });
 
 export const updateUserProfile = asyncHandler(async(req ,res)=>{
-    let body = req.body;
-    User.updateOne({ _id: body._id }, {
-            $set: req.body
-        },
-        function(error, info) {
-            if (error) {
-                res.json({
-                    resultado: false,
-                    msg: 'No se pudo modificar el cliente',
-                    err
-                });
-            } else {
-                res.json({
-                    resultado: true,
-                    info: info
-                })
-            }
-       }
+    const usuarioExtraido= await User.findById({"_id": req.body._id})
 
-   )  
+    const salt = await bcrypt.genSalt(10);
+    req.body.password = await bcrypt.hash(req.body.password, salt)
+
+    if(usuarioExtraido){
+        usuarioExtraido.name=req.body.name || usuarioExtraido.name;
+       // usuarioExtraido.email=req.body.email || usuarioExtraido.email;
+        usuarioExtraido.password=req.body.password || usuarioExtraido.password;
+        console.log(usuarioExtraido)
+
+        usuarioExtraido.save();
+        res.status(200).json(
+            
+        );
+
+    }else{
+        res.status(404);
+        throw new Error ("User not Found");
+    }
+
 });
+
 
 export const getUsers = asyncHandler(async(req ,res)=>{
     User.find((err, Usuarios) =>{
@@ -106,7 +109,21 @@ export const getUsers = asyncHandler(async(req ,res)=>{
 })
 
 export const deleteUser = asyncHandler(async(req ,res)=>{
+    const id = req.params.id;
+    const userExists = await User.findById(id);
 
+    console.log(userExists);
+
+    if(userExists){
+        const userRemove = await User.remove({email:userExists.email});
+        res.json({
+            ok : true,
+            message : "User removed"
+        })
+    }else {
+        res.status(404);
+        throw new Error('User not found');
+    }
 })
 
 export const getUserById = asyncHandler(async(req ,res)=>{
@@ -127,6 +144,32 @@ export const getUserById = asyncHandler(async(req ,res)=>{
 })
 
 export const updateUser = asyncHandler(async(req ,res)=>{
+    
+    const usuarioExtraido= await User.findById(req.params.id);
+    console.log(req.params.id);
+
+ 
+
+    if(usuarioExtraido){
+        usuarioExtraido.name=req.body.name || usuarioExtraido.name;
+        usuarioExtraido.email=req.body.email || usuarioExtraido.email;
+      
+        usuarioExtraido.isAdmin=req.body.isAdmin || usuarioExtraido.isAdmin;
+       
+
+        usuarioExtraido.save();
+        
+        res.status(200).json({
+            msg: "Update User"
+        }
+            
+        );
+
+    }else{
+        res.status(404);
+        throw new Error ("User not Found");
+    }
+
 
 })
 

@@ -148,13 +148,12 @@ export const updateUser = asyncHandler(async(req ,res)=>{
     const usuarioExtraido= await User.findById(req.params.id);
     console.log(req.params.id);
 
-    //const salt = await bcrypt.genSalt(10);
-    //req.body.password = await bcrypt.hash(req.body.password, salt)
+ 
 
     if(usuarioExtraido){
         usuarioExtraido.name=req.body.name || usuarioExtraido.name;
         usuarioExtraido.email=req.body.email || usuarioExtraido.email;
-        //usuarioExtraido.name=req.body.password || usuarioExtraido.password;
+      
         usuarioExtraido.isAdmin=req.body.isAdmin || usuarioExtraido.isAdmin;
        
 

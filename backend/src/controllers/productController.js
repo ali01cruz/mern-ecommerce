@@ -18,14 +18,14 @@ export const getProducts = asyncHandler(async (req , res)=>{
     return res.json({products ,page ,pages:Math.ceil(count / pageSize)})
 })
 
-export const getProductsById = asyncHandler(async (req,res)=>{
+export const getProductById = asyncHandler(async (req,res)=>{
 
 })
 export const deleteProduct = asyncHandler(async (req, res)=>{
 
 });
 
-export const createProduct = asyncHandler(async (req,res)=>{
+export const registerProduct = asyncHandler(async (req,res)=>{
     const product = new Product({
         name:'Sample name',
         price:0,

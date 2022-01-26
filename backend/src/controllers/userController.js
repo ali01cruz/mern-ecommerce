@@ -1,6 +1,7 @@
 import asyncHandler from 'express-async-handler';
 import generateToken from '../common/generateToken.js';
 import User from '../models/userModel.js';
+import bcrypt from 'bcryptjs'
 
 export const authUser = asyncHandler(async (req, res)=> {
     const {email, password} = req.body;
@@ -68,9 +69,11 @@ export const getUserProfile = asyncHandler(async(req ,res)=>{
 
 export const updateUserProfile = asyncHandler(async(req ,res)=>{
     let body = req.body;
+    const salt = await bcrypt.genSalt(10);
+    req.body.password = await bcrypt.hash(req.body.password, salt)
     User.updateOne({ _id: body._id }, {
             $set: req.body
-        },
+            ,
         function(error, info) {
             if (error) {
                 res.json({
@@ -86,7 +89,7 @@ export const updateUserProfile = asyncHandler(async(req ,res)=>{
             }
        }
 
-   )  
+    })  
 });
 
 export const getUsers = asyncHandler(async(req ,res)=>{

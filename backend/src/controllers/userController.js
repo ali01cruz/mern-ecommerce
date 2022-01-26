@@ -68,10 +68,30 @@ export const getUserProfile = asyncHandler(async(req ,res)=>{
 });
 
 export const updateUserProfile = asyncHandler(async(req ,res)=>{
-    let body = req.body;
+    const usuarioExtraido= await User.findById({"_id": req.body._id})
+
     const salt = await bcrypt.genSalt(10);
     req.body.password = await bcrypt.hash(req.body.password, salt)
-    User.updateOne({ _id: body._id }, {
+
+    if(usuarioExtraido){
+        usuarioExtraido.name=req.body.name || usuarioExtraido.name;
+       // usuarioExtraido.email=req.body.email || usuarioExtraido.email;
+        usuarioExtraido.password=req.body.password || usuarioExtraido.password;
+        console.log(usuarioExtraido)
+
+        usuarioExtraido.save();
+        res.status(200).json(
+            
+        );
+
+    }else{
+        res.status(404);
+        throw new Error ("User not Found");
+    }
+
+});
+
+   /* User.updateOne({ _id: body._id }, {
             $set: req.body
             ,
         function(error, info) {
@@ -91,7 +111,7 @@ export const updateUserProfile = asyncHandler(async(req ,res)=>{
 
     })  
 });
-
+*/
 export const getUsers = asyncHandler(async(req ,res)=>{
     User.find((err, Usuarios) =>{
         if (err){
@@ -144,6 +164,33 @@ export const getUserById = asyncHandler(async(req ,res)=>{
 })
 
 export const updateUser = asyncHandler(async(req ,res)=>{
+    
+    const usuarioExtraido= await User.findById(req.params.id);
+    console.log(req.params.id);
+
+    //const salt = await bcrypt.genSalt(10);
+    //req.body.password = await bcrypt.hash(req.body.password, salt)
+
+    if(usuarioExtraido){
+        usuarioExtraido.name=req.body.name || usuarioExtraido.name;
+        usuarioExtraido.email=req.body.email || usuarioExtraido.email;
+        //usuarioExtraido.name=req.body.password || usuarioExtraido.password;
+        usuarioExtraido.isAdmin=req.body.isAdmin || usuarioExtraido.isAdmin;
+       
+
+        usuarioExtraido.save();
+        
+        res.status(200).json({
+            msg: "Update User"
+        }
+            
+        );
+
+    }else{
+        res.status(404);
+        throw new Error ("User not Found");
+    }
+
 
 })
 

@@ -91,27 +91,7 @@ export const updateUserProfile = asyncHandler(async(req ,res)=>{
 
 });
 
-   /* User.updateOne({ _id: body._id }, {
-            $set: req.body
-            ,
-        function(error, info) {
-            if (error) {
-                res.json({
-                    resultado: false,
-                    msg: 'No se pudo modificar el cliente',
-                    err
-                });
-            } else {
-                res.json({
-                    resultado: true,
-                    info: info
-                })
-            }
-       }
 
-    })  
-});
-*/
 export const getUsers = asyncHandler(async(req ,res)=>{
     User.find((err, Usuarios) =>{
         if (err){

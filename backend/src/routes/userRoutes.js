@@ -20,6 +20,7 @@ router.get('/profile' ,protec ,getUserProfile);
 router.put('/profile', updateUserProfile);
 router.get('/list', getUsers,);
 
+
 /* router.post('/', protect,admin ,getUsers);
 
 router.get('/profile' ,protect ,getUserProfile)

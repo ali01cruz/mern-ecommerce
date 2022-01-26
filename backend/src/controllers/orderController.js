@@ -29,5 +29,25 @@ export const addOrderItems = asyncHandler(async (req , res)=>{
         const createOrder = await order.save();
         res.status(201).json(createOrder);
     }
-})
+});
 
+
+export const getOrderById = asyncHandler(async (req,res)=>{
+
+});
+
+export const updateOrderToPaid = asyncHandler(async (req,res)=>{
+
+});
+
+export const updateOrderToDelivered = asyncHandler(async (req,res)=>{
+
+});
+
+export const getMyOrders = asyncHandler(async (req,res)=>{
+
+});
+
+export const getOrders = asyncHandler(async (req,res)=>{
+
+});

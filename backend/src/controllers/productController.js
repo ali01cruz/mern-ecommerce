@@ -84,5 +84,13 @@ export const createProductReview = asyncHandler(async (req,res)=>{
 })
 
 export const getTopProducts = asyncHandler(async (req ,res)=>{
-    
+    const sizePoducts = 3;
+
+    const produc = await Product.find().sort({rating:"desc"}).limit(3);
+
+    if(!produc){
+        res.status(404)
+        throw new Error('Produc Not Found');
+    }
+    res.status(200).json({produc})
 })

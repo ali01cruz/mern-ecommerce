@@ -33,7 +33,19 @@ export const addOrderItems = asyncHandler(async (req , res)=>{
 
 
 export const getOrderById = asyncHandler(async (req,res)=>{
-    
+    const order = await Order.findById(req.params.id).populate({
+        path: 'user',
+        model: User,
+        select:'name email'
+    })
+    //console.log(order.user._id.toString());
+    if(!order){
+        res.status(404)
+        throw Error('Not Found Order') 
+    }
+    if((order && req.user._id.toString()===order.user._id.toString()) || (order && req.user.isAdmin)){
+        res.status(200).json(order)
+    }
 });
 
 export const updateOrderToPaid = asyncHandler(async (req,res)=>{

@@ -3,38 +3,103 @@ import mongoose from "mongoose";
 const orderSchema = mongoose.Schema(
     {
         user:{
-
+            type:mongoose.Schema.Types.ObjectId,
+            require:true,
+            ref:'User'
         },
-        orderItems:[{},],
-        shippingAddress:{
+        orderItems:[{
+            name:{
+                type:String,
+                require:true
+            },
+            qty:{
+                type:Number,
+                require:true
+            },
+            image:{
+                type:String,
+                require:true
+            },
+            price:{
+                type:Number,
+                require:true
+            },
+            product:{
+                type:mongoose.Schema.Types.ObjectId,
+                require:true,
+                ref:'Product'
+            }
 
+        },],
+        shippingAddress:{
+            address:{
+                type:String,
+                require:true
+            },
+            city:{
+                type:String,
+                require:true
+            },
+            postalCode:{
+                type:String,
+                require:true
+            },
+            country:{
+                type:String,
+                require:true
+            }
         },
         paymentMethod:{
-
+            type:String,
+            require:true
         },
         paymentResult:{
-
+            id:{
+                type:String,
+                require:false
+            },
+            status:{
+                type:String,
+                require:false
+            },
+            update_time:{
+                type:String,
+                require:false
+            },
+            email_address:{
+                type:String,
+                require:false
+            },
         },
         taxPrice:{
-
+            type:Number,
+            require:true,
+            default:0
         },
         shippingPrice:{
-
+            type:Number,
+            require:true,
+            default:0
         },
         totalPrice:{
-
+            type:Number,
+            require:true,
+            default:0
         },
         isPaid:{
-
+            type:Boolean,
+            require:true,
+            default:0
         },
         paidAt:{
-
+            type: Date
         },
         isDelivered:{
-
+            type:Boolean,
+            default:false
         },
         deliveredAt:{
-
+            type: Date
         },
     },
     {

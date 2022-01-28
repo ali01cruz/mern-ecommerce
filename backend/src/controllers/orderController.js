@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler";
-import Order from '../models/userModel.js'
+import res from "express/lib/response";
+import Order from '../models/orderModel.js'
 
 export const addOrderItems = asyncHandler(async (req , res)=>{
     const{
@@ -45,9 +46,15 @@ export const updateOrderToDelivered = asyncHandler(async (req,res)=>{
 });
 
 export const getMyOrders = asyncHandler(async (req,res)=>{
-
+    const id_order=req.params.id
+    const order = await Order.findById({_id:id_order});
+    if (!order){
+        res.status(400);
+        throw new Error ('Order NOT Exists');
+    }
+    res.status(200).json(order)
 });
 
-export const getOrders = asyncHandler(async (req,res)=>{
+export const getUsers = asyncHandler(async(req ,res)=>{
 
-});
+})

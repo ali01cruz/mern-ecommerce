@@ -49,7 +49,8 @@ export const getOrderById = asyncHandler(async (req,res)=>{
 });
 
 export const updateOrderToPaid = asyncHandler(async (req,res)=>{
-
+    //console.log(ordenExist);
+    
 });
 
 export const updateOrderToDelivered = asyncHandler(async (req,res)=>{

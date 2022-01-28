@@ -55,16 +55,16 @@ export const getOrderById = asyncHandler(async (req,res)=>{
 export const updateOrderToPaid = asyncHandler(async (req,res)=>{
 
 
-    const ordenExists= await Order.findById(req.body.id);
-    console.log(ordenExists);
+    const ordenExists= await Order.findById(req.params.id);
+    const auxid=req.params.id;
     if (ordenExists && (req.user.isAdmin || ordenExists.user._id.equals(req.user._id))){
         ordenExists.isPaid=true;
         ordenExists.paidAt=new Date();
         ordenExists.paymentMethod={
-            id: req.body.id,
+            id:auxid ,
             status: req.body.status,
             update_time: renq.body.update_time,
-            email_address: req.body.payer.email_address
+            email_address: req.body.email_address    //payer
         };
 
         ordenExists.save();

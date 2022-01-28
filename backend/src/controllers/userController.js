@@ -81,6 +81,8 @@ export const updateUserProfile = asyncHandler(async(req ,res)=>{
 
         usuarioExtraido.save();
         res.status(200).json(
+            { msg:"Update User"}
+            
             
         );
 

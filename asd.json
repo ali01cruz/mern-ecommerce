@@ -1,0 +1,19 @@
+{
+   
+    "orderItems":[
+        {
+            "_id":"61f2a6c684724faa1a21b21e" 
+        }
+    ],
+    "shippingAddress": {
+        "address": "Republica de Siria 255 Bº Centro",
+        "city": "Perico - Jujuy",
+        "postalCode": "4608",
+        "country": "Argentina"
+      },
+    "paymentMethod": "PayPal",
+    "taxPrice":"100",
+    "shippingPrice": "200",
+    "totalPrice": "300"
+  
+}

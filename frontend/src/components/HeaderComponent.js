@@ -12,7 +12,7 @@ const HeaderComponent = () => {
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-          <div class="container-fluid">
+          <div class="container-fluid" style={{width: "83%"}}>
           <div class="col-12 col-m-6 col-lg-8">
              <form class="d-flex">
              <input class="form-control me-2" type="search" placeholder="Buscar Producto..." aria-label="Search"></input>

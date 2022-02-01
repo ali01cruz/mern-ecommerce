@@ -12,6 +12,14 @@ const HeaderComponent = () => {
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
+          <div class="container-fluid">
+          <div class="col-12 col-m-6 col-lg-8">
+             <form class="d-flex">
+             <input class="form-control me-2" type="search" placeholder="Buscar Producto..." aria-label="Search"></input>
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+                 </form>
+          </div>
+          </div>
           
             <Nav className='ms-auto'>
               <LinkContainer to='/cart'>

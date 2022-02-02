@@ -33,7 +33,7 @@ const LoginPage = () => {
   };
 
   return (
-    <FormContainer>
+     <FormContainer>
       <h1>Iniciar Sesión</h1>
       {error && <Message variant='danger'>{error}</Message>}
       {loading ? (

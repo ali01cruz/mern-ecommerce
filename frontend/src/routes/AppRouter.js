@@ -8,8 +8,8 @@ const AppRouter = () => {
     return (
         <Router>
             <HeaderComponent />
-            <LoginPage />
-           {/* <RegisterPage />*/}
+            {/* <LoginPage /> */}
+           <RegisterPage />
         </Router>
     );
 };

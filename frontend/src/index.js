@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import './bootstrap.min.css';
 import { Provider } from 'react-redux';
+import App from './App';
 import store from './redux/store';
+import './bootstrap.min.css';
 
 //llamadas de los componetes o renderizado
 
 ReactDOM.render(
-  <React.StrictMode>
       <Provider store={store}>
         <App />
-      </Provider>
-  </React.StrictMode>,
+      </Provider>,
   document.getElementById('root')
 );
 

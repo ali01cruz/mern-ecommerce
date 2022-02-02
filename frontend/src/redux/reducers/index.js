@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {productListReducer} from './productReducers.js';
+import {productListReducer, productUpdateReducer} from './productReducers';
 
 //varios reducers
 import {
@@ -14,13 +14,8 @@ import {
   
 const reducer = combineReducers({
     productList : productListReducer,
-    userLogin: userLoginReducer,
-    userRegister: userRegisterReducer,
-    userDetails: userDetailsReducer,
-    userUpdateProfile: userUpdateProfileReducer,
-    userList: userListReducer,
-    userDelete: userDeleteReducer,
-    userUpdate: userUpdateReducer,
+
+    productUpdate : productUpdateReducer,
 });
 
 export default reducer;

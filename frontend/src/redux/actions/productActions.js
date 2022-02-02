@@ -1,5 +1,3 @@
-import actionsTypes from "./actionTypes";
-import {getProducts, updateProduct, deleteProduct} from '../../services/productServices';
 
 export const listProducts = (keyword = '', pageNumber='') => {
     return async(dispatch) => {
@@ -19,8 +17,6 @@ export const listProducts = (keyword = '', pageNumber='') => {
                     : error.message
             });
         }
-    };
-}
 
 export const productUpdate = (id) => {
     return async(dispatch) => {

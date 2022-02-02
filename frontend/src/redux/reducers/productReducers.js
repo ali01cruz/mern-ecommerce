@@ -1,8 +1,10 @@
-import actionsTypes from "../actions/actionTypes";
+import actionTypes from "../actions/action-types";
+
 
 //una funcion que recibe dos parametros el estado inicial y una accion 
 export const productListReducer = (state = {products:[]}, action) => {
     switch(action.type){
+
         case actionsTypes.PRODUCT_LIST_REQUEST: 
             return {loading: true, products: []};
         case actionsTypes.PRODUCT_LIST_SUCESS: 
@@ -10,6 +12,7 @@ export const productListReducer = (state = {products:[]}, action) => {
                 loading: false,
                 products: action.payload.products,
                 pages: action.payload.pages,
+
                 page: action.payload.page,
             };
         case actionsTypes.PRODUCT_LIST_FAIL:

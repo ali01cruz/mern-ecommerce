@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import ProductComponent from '../components/ProductComponent';
 import { listProducts } from '../redux/actions/productActions';
 
 
@@ -14,7 +15,7 @@ const HomePage = () => {
 
     const params = useParams();
     const { keyword } = params;
-    const pageNumber = params.pageNumber;
+    const pageNumber = params.pageNumber || 1;
 
     useEffect(() => {
         dispatch(listProducts(keyword, pageNumber));
@@ -33,7 +34,7 @@ const HomePage = () => {
             <Row>
               {products.map((product) => (
                 <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                  {/*<Product product={product} /> */}
+                  {<ProductComponent product={product} />}
                 </Col>
               ))}
             </Row>

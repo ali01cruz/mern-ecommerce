@@ -7,7 +7,7 @@ import {
     userDetails,
     userUpdateProfile,
   } from '../../services/userServices';
-  import actionTypes from './action-types';
+  import actionTypes from './actionTypes';
   
   export const login = (email, password) => {
     return async (dispatch) => {

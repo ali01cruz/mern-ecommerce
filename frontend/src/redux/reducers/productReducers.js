@@ -1,4 +1,4 @@
-import actionTypes from "../actions/action-types";
+import actionsTypes from "../actions/actionTypes";
 
 
 //una funcion que recibe dos parametros el estado inicial y una accion 

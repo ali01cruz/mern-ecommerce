@@ -7,6 +7,7 @@ import ProductComponentDetail from '../components/ProductComponentDetail';
 import HomePage from '../pages/HomePage';
 import ProductPage from '../pages/ProductPage';
 import LoginPage from '../pages/LoginPage';
+import RegisterPage from '../pages/RegisterPage';
 
 const AppRouter = () => {
     return (
@@ -19,7 +20,8 @@ const AppRouter = () => {
                         <Route exact path='/' element={<HomePage/>}/>
                         {/* <Route path='/products' element={<ProductPage/>}/>
                         <Route path='/products/:productId' element={<ProductComponentDetail/>}/> */}
-                        <Route exact path='/login' element={<LoginPage/>}/>
+                        <Route path='/login' element={<LoginPage/>}/>
+                        <Route path='/register' element={<RegisterPage/>}/>
                     </Routes>
                 </Container>
             </main> 

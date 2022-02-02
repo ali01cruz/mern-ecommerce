@@ -14,7 +14,8 @@ import {
   
 const reducer = combineReducers({
     productList : productListReducer,
-    userLogin: userLoginReducer,
+    userLogin: userLoginReducer, //esta linea no estaba, tener en cuenta
+    userRegister: userRegisterReducer,//agregado para ver lo del registro de cuenta nueva
     productUpdate : productUpdateReducer,
 });
 

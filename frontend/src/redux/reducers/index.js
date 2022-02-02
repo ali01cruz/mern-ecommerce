@@ -14,7 +14,7 @@ import {
   
 const reducer = combineReducers({
     productList : productListReducer,
-
+    userLogin: userLoginReducer,
     productUpdate : productUpdateReducer,
 });
 

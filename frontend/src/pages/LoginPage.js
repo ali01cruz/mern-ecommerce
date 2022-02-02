@@ -7,7 +7,7 @@ import Loader from '../components/Loader';
 import { login } from '../redux/actions/userActions';
 import FormContainer from '../components/FormContainer';
 
-const LoginPage = () => {
+  const LoginPage = () => {
   const [values, setValues] = useState({
     email: '',
     password: '',

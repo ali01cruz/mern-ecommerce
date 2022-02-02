@@ -37,7 +37,7 @@ export const registerUser = async (name, email, password) => {
   }
 };
 
-export const userDetails = async (endpoint, userInfo) => {
+/*export const userDetails = async (endpoint, userInfo) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -53,9 +53,9 @@ export const userDetails = async (endpoint, userInfo) => {
   } catch (error) {
     throw error;
   }
-};
+};*/
 
-export const userUpdateProfile = async (user, userInfo) => {
+/*export const updateUserProfile = async (user, userInfo) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -72,9 +72,9 @@ export const userUpdateProfile = async (user, userInfo) => {
   } catch (error) {
     throw error;
   }
-};
+};*/
 
-export const getUsers = async (userInfo) => {
+/*export const getUsers = async (userInfo) => {
   const config = {
     headers: {
       Authorization: `Bearer ${userInfo.token}`,
@@ -86,9 +86,9 @@ export const getUsers = async (userInfo) => {
   } catch (error) {
     throw error;
   }
-};
+};*/
 
-export const deleteAUser = async (id, userInfo) => {
+/*export const deleteUser = async (id, userInfo) => {
   const config = {
     headers: {
       Authorization: `Bearer ${userInfo.token}`,
@@ -100,9 +100,9 @@ export const deleteAUser = async (id, userInfo) => {
   } catch (error) {
     throw error;
   }
-};
+};*/
 
-export const updateAUser = async (user, userInfo) => {
+export const updateUser = async (user, userInfo) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',

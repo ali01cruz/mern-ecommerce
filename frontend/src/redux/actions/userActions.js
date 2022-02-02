@@ -1,11 +1,11 @@
 import {
-    deleteAUser,
-    getUsers,
+    //deleteUser,
+    //getUsers,
     loginUser,
     registerUser,
-    updateAUser,
-    userDetails,
-    userUpdateProfile,
+    updateUser,
+    //getUserProfile,
+    updateUserProfile,
   } from '../../services/userServices';
   import actionTypes from './actionTypes';
   
@@ -71,7 +71,7 @@ import {
     };
   };
   
-  export const getUserDetails = (endpoint) => {
+ /* export const getUserDetails = (endpoint) => {
     return async (dispatch, getState) => {
       try {
         dispatch({
@@ -99,9 +99,9 @@ import {
         });
       }
     };
-  };
+  };*/
   
-  export const updateUserProfile = (user) => {
+ /* export const updateUserProfile = (user) => {
     return async (dispatch, getState) => {
       try {
         dispatch({
@@ -134,9 +134,9 @@ import {
         });
       }
     };
-  };
+  };*/
   
-  export const listUsers = () => {
+  /*export const listUsers = () => {
     return async (dispatch, getState) => {
       try {
         dispatch({
@@ -164,9 +164,9 @@ import {
         });
       }
     };
-  };
+  };*/
   
-  export const deleteUser = (id) => {
+  /*export const deleteUser = (id) => {
     return async (dispatch, getState) => {
       try {
         dispatch({
@@ -193,9 +193,9 @@ import {
         });
       }
     };
-  };
+  };*/
   
-  export const updateUser = (user) => {
+ /* export const updateUser = (user) => {
     return async (dispatch, getState) => {
       try {
         dispatch({
@@ -224,5 +224,5 @@ import {
         });
       }
     };
-  };
+  };*/
   

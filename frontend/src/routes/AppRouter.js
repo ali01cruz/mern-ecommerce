@@ -17,12 +17,12 @@ const AppRouter = () => {
                 <Container>
                     <Routes>
                         <Route exact path='/' element={<HomePage/>}/>
-                        <Route path='/products' element={<ProductPage/>}/>
-                        <Route path='/products/:productId' element={<ProductComponentDetail/>}/>
+                        {/* <Route path='/products' element={<ProductPage/>}/>
+                        <Route path='/products/:productId' element={<ProductComponentDetail/>}/> */}
                         <Route exact path='/login' element={<LoginPage/>}/>
                     </Routes>
                 </Container>
-            </main>
+            </main> 
 
         </Router>
     );

@@ -1,3 +1,5 @@
+
+
 import actionsTypes from "../actions/actionTypes";
 
 
@@ -5,13 +7,15 @@ import actionsTypes from "../actions/actionTypes";
 export const productListReducer = (state = {products:[]}, action) => {
     switch(action.type){
 
-        case actionsTypes.PRODUCT_LIST_REQUEST: 
+        case actionTypes.PRODUCTS_LIST_REQUEST: 
             return {loading: true, products: []};
-        case actionsTypes.PRODUCT_LIST_SUCESS: 
+        case actionTypes.PRODUCTS_LIST_SUCESS: 
+
             return {
                 loading: false,
                 products: action.payload.products,
                 pages: action.payload.pages,
+
 
                 page: action.payload.page,
             };
@@ -27,6 +31,7 @@ export const productUpdateReducer = (state = {product:""}, action) => {
         case actionsTypes.PRODUCT_LIST_REQUEST: 
             return {loading: true, product: ""};
         case actionsTypes.PRODUCT_LIST_SUCESS: 
+
             return {
                 loading: false,
                 product: action.payload.product,
@@ -38,4 +43,39 @@ export const productUpdateReducer = (state = {product:""}, action) => {
         default: 
             return state;
     }
-};
+
+}
+
+export const productReviewCreateReducer = (state = {}, action) => {
+  console.log("hola entre")
+    switch (action.type) {
+      case actionTypes.PRODUCT_CREATE_REVIEW_REQUEST:
+        return { loading: true };
+      case actionTypes.PRODUCT_CREATE_REVIEW_SUCCESS:
+        return { loading: false, success: true };
+      case actionTypes.PRODUCT_CREATE_REVIEW_FAIL:
+        return { loading: false, error: action.payload };
+      case actionTypes.PRODUCT_CREATE_REVIEW_RESET:
+        return {};
+      default:
+        return state;
+    }
+  };
+
+  export const productDetailsReducer = (
+    state = { product: { reviews: [] } },
+    action
+  ) => {
+    console.log("hola entre en product");
+    switch (action.type) {
+      case actionTypes.PRODUCT_DETAILS_REQUEST:
+        return { loading: true, ...state };
+      case actionTypes.PRODUCT_DETAILS_SUCCESS:
+        return { loading: false, product: action.payload };
+      case actionTypes.PRODUCT_DETAILS_FAIL:
+        return { loading: false, error: action.payload };
+      default:
+        return state;
+    }
+  };
+

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Form, Button, Row, Col, FormGroup, FormLabel } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
@@ -21,14 +21,12 @@ const RegisterPage = () => {
   const { loading, error, userInfo } = userRegister;
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const redirect = location.search ? location.search.split('=')[1] : '/';
-
+  
   useEffect(() => {
     if (userInfo) {
-      navigate(redirect);
+      navigate('/login');
     }
-  }, [navigate, userInfo, redirect]);
+  }, [navigate, userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -96,7 +94,7 @@ const RegisterPage = () => {
           <Row className='py-3'>
             <Col>
               Ya tienes una cuenta?{' '}
-              <Link to={redirect ? `/login?redirect=/${redirect}` : '/login'}>
+              <Link to={'/login'}>
                 Iniciar Sesión
               </Link>
             </Col>

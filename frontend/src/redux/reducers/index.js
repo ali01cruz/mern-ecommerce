@@ -1,26 +1,15 @@
 import {combineReducers} from 'redux';
-import {productListReducer} from './productReducers.js';
+//import {productListReducer} from './productReducers.js';
 
 //varios reducers
 import {
-    userDeleteReducer,
-    userDetailsReducer,
-    userListReducer,
     userLoginReducer,
     userRegisterReducer,
-    userUpdateProfileReducer,
-    userUpdateReducer,
   } from './userReducers';
   
-const reducer = combineReducers({
-    productList : productListReducer,
+const reducer = combineReducers({    
     userLogin: userLoginReducer,
-    userRegister: userRegisterReducer,
-    userDetails: userDetailsReducer,
-    userUpdateProfile: userUpdateProfileReducer,
-    userList: userListReducer,
-    userDelete: userDeleteReducer,
-    userUpdate: userUpdateReducer,
+    userRegister: userRegisterReducer,    
 });
 
 export default reducer;

@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
-  const { loading, error, userInfo } = userLogin;
+  const { loading, error, userInfo } = userLogin;//userInfo
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -25,7 +25,7 @@ const LoginPage = () => {
     if (userInfo) {
       navigate(redirect);
     }
-  }, [navigate, userInfo, redirect]);
+  }, [navigate, userInfo, redirect]);//userInfo
 
   const submitHandler = (e) => {
     e.preventDefault();

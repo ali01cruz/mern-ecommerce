@@ -15,3 +15,13 @@ const getProducts = async(keyword, pageNumber) => {
 }
 
 export default getProducts;
+
+
+export const getProductById = async (id) => {
+    try {
+      const { data } = await axios.get(`${BASE_URL_BACK}/products/${id}`);
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  };
